@@ -44,7 +44,7 @@ class FacotryBeaconProxyDeployer:
             {'from': accounts[0]}
             )
 
-    def deploy_beacon_proxy_contract(self,num_of_proxy_to_deploy = 2):
+    def deploy_beacon_proxy_contract(self,num_of_proxy_to_deploy = 3):
         for i in range(num_of_proxy_to_deploy):
             latest_beacon_proxy_index = len(self.deployed_beacon_proxy_object_list)
             print("Deploying Beacon Proxy: ",i)
@@ -74,6 +74,7 @@ class FacotryBeaconProxyDeployer:
 
         # get address of proxy_index from list self.deployed_beacon_proxy_object_list
         selected_proxy_contract = self.deployed_beacon_proxy_object_list[proxy_index]
+        print("Proxy has address: ",selected_proxy_contract.address)
 
         # load from implementation_contract_object abi
         current_proxy_logic = Contract.from_abi(self.implementation_contract_name , selected_proxy_contract.address, self.implementation_contract_object.abi)
@@ -85,6 +86,7 @@ class FacotryBeaconProxyDeployer:
         else:
             print("Undefined Function Call!")
             return
+        
         time.sleep(1)
         return txn_receipt
 
@@ -99,7 +101,7 @@ def main():
         
         # try and check that setValue function is not available
         try:
-            deployer_object.interact_with_proxy_contract("setValue")
+            deployer_object.interact_with_proxy_contract("setValue",i)
         except:
             print("As expected setValue function is not available")
 
@@ -107,7 +109,7 @@ def main():
     simple_contract_v2 = SimpleContractV2.deploy({'from': accounts[0]})
     time.sleep(1)
 
-    # # UPGRADE UPGRADABLE BEACON PROXY CONTRACT
+    # UPGRADE UPGRADABLE BEACON PROXY CONTRACT
     deployer_object.upgrade_upgradeable_beacon_proxy_contract(SimpleContractV2,simple_contract_v2.address,"SimpleContractV2")
 
     # Interact with new function of all deployed proxies
