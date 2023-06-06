@@ -2,6 +2,8 @@
 
 A simple implementation of various proxy and factory patterns. To provide a quick overview of current methods and some deployment scripts to get anyone started quickly. This repo is not optimized and meant for direct production, rather as a demonstration and documentation of possible proxy patterns and how to implement them in code.
 
+I've written an article for a quick overview of this repo and concepts at :
+
 ## Installation
 
 1. [Install Brownie](https://eth-brownie.readthedocs.io/en/stable/install.html), if you haven't already.
@@ -10,6 +12,12 @@ A simple implementation of various proxy and factory patterns. To provide a quic
 
    ```bash
    brownie pm install OpenZeppelin/openzeppelin-contracts@4.8.3
+   ```
+
+3. Compile the contracts
+
+   ```bash
+   brownie compile
    ```
 
 ## Basic Use
