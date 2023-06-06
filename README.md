@@ -2,7 +2,7 @@
 
 A simple implementation of various proxy and factory patterns. To provide a quick overview of current methods and some deployment scripts to get anyone started quickly. This repo is not optimized and meant for direct production, rather as a demonstration and documentation of possible proxy patterns and how to implement them in code.
 
-I've written an article for a quick overview of this repo and concepts at :
+I've written an article for a quick overview of this repo and concepts at : https://medium.com/@harshgill2954/upgradeable-and-clonable-blockchain-smart-contracts-f3df36bbba6c
 
 ## Installation
 
